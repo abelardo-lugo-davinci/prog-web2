@@ -5,6 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+
 </head>
 <body>
 
@@ -12,7 +19,7 @@
 
     <?php 
     
-    echo "<h3>Hola Mundo</h3>";
+    echo "<h2>Hola Mundo</h2>";
     
     // Este es un comentario
 
@@ -29,16 +36,25 @@
     echo "<p>",$texto1,"</p>";
     echo $texto2;
 
-    echo "<table><tbody>";
-    for($x = 0; $x < 30; $x++) {
+    // Tabla de multiplicar hecha con PHP
+
+    echo "<h2>Tabla de multiplicar</h2>";
+
+    echo "<table style="."width:100%;".">";
+    echo "<tr>";
+    for($i = 0; $i < 10; $i++) {
+        echo "<th>".$i."</th>";
+    }
+    echo "</tr>";
+    for($x = 0; $x < 20; $x++) {
         echo "<tr>";
         for ($y = 0; $y < 10; $y++) {
             echo "<td>",($x*$y),"</td>";
         }
         echo "</tr>";
-        echo "</th>";
     }
-    echo "</tbody></table>"
+    echo "</table>";
+
     ?>
 
 </body>
