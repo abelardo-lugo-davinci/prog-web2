@@ -9,6 +9,7 @@
     <style>
         table, th, td {
             border: 1px solid black;
+            text-align: center;
         }
     </style>
 
@@ -18,7 +19,22 @@
     <h1>Práctica de PHP</h1>
 
     <?php 
-    
+
+    function descargarDatos($arregloPersonas) {
+
+        // Función que recibe un arreglo con datos de personas y genera una tabla
+        
+        for ($i=0; $i < sizeof($arregloPersonas); $i++) { 
+            // echo(implode($personas[$i]));
+            echo("<tr>");
+            foreach ($arregloPersonas[$i] as $key => $value) {
+                echo("<td>".$value."</td>");
+            }
+            echo("</tr>");
+        }
+        
+    }
+
     echo "<h2>Hola Mundo</h2>";
     
     // Este es un comentario
@@ -44,20 +60,57 @@
     echo "<h2>Tabla de multiplicar</h2>";
 
     echo("<table style="."width:100%;".">");
-    echo("<tr>");
     
-    for($i = 0; $i < $columnas; $i++) {
-        echo("<th>".( $i + 1)."</th>");
-    }
-
-    echo("</tr>");
-    for($x = 0; $x < $filas; $x++) {
         echo("<tr>");
-        for ($y = 0; $y < $columnas; $y++) {
-            echo "<td>",(( $x + 1)*( $y + 1 )),"</td>";
-        }
+        
+            for($i = 0; $i < $columnas; $i++) {
+                echo("<th>".( $i + 1)."</th>");
+            }
+
         echo("</tr>");
-    }
+        
+        for($x = 0; $x < $filas; $x++) {
+            echo("<tr>");
+            for ($y = 0; $y < $columnas; $y++) {
+                echo "<td>",(( $x + 1)*( $y + 1 )),"</td>";
+            }
+            echo("</tr>");
+        }
+
+    echo("</table>");
+
+    echo("<p></p>");
+    
+    // Ejemplo Alumnos
+
+    $nombres = array("Nicolás", "Kevin", "Matías", "Lucio", "Diana");
+    $apellidos = array("Labasse", "Barrios", "Blanco", "Tantignone", "Garrammone");
+    $edades = array(23, 24, 25, 26, 27);
+
+    $persona1 = array("Nombre" => "Nicolás", "Apellido" => "Labasse", "Edad" => 23);
+    $persona2 = array("Nombre" => "Kevin", "Apellido" => "Barrios", "Edad" => 24);
+    $persona3 = array("Nombre" => "Matías", "Apellido" => "Blanco", "Edad" => 25);
+    $persona4 = array("Nombre" => "Lucio", "Apellido" => "Tantignone", "Edad" => 26);
+    $persona5 = array("Nombre" => "Diana", "Apellido" => "Garrammone", "Edad" => 27);
+
+
+
+    $personas = array($persona1, $persona2, $persona3, $persona4, $persona5);
+
+    echo "<h2>Tabla de Alumnos</h2>";
+
+    echo("<table style="."width:100%".">");
+
+        echo("<tr>");
+            
+        foreach ($persona1 as $key => $value) {
+            echo("<th>".$key."</th>");
+        }
+
+        echo("</tr>");
+
+        descargarDatos($personas);
+            
     echo("</table>");
 
     ?>
